@@ -51,8 +51,12 @@ class TestNotionClient:
         """Test search with pagination."""
         with patch("notion_cli.client.Client") as mock_client:
             mock_instance = mock_client.return_value
-            # First page
+            
+            # Mock _test_connection search call first
             mock_instance.search.side_effect = [
+                # First call is from _test_connection
+                {"results": [], "has_more": False},
+                # Then the actual search calls with pagination
                 {
                     "results": [{"id": "1"}, {"id": "2"}],
                     "has_more": True,
