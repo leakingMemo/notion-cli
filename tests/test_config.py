@@ -1,5 +1,6 @@
 """Tests for configuration management."""
 
+import os
 import pytest
 import tempfile
 from pathlib import Path
@@ -40,19 +41,31 @@ class TestConfig:
     
     def test_save_and_load(self):
         """Test saving and loading configuration."""
-        with tempfile.TemporaryDirectory() as tmpdir:
-            config_path = Path(tmpdir) / "config.yaml"
-            
-            # Create and save config
-            config = Config(config_path)
-            config.set("api_key", "test-key")
-            config.set("custom_value", "test")
-            config.save()
-            
-            # Load config
-            config2 = Config(config_path)
-            assert config2.get("api_key") == "test-key"
-            assert config2.get("custom_value") == "test"
+        # Save current env var if it exists
+        original_api_key = os.environ.get("NOTION_API_KEY")
+        
+        # Remove env var to ensure test isolation
+        if "NOTION_API_KEY" in os.environ:
+            del os.environ["NOTION_API_KEY"]
+        
+        try:
+            with tempfile.TemporaryDirectory() as tmpdir:
+                config_path = Path(tmpdir) / "config.yaml"
+                
+                # Create and save config
+                config = Config(config_path)
+                config.set("api_key", "test-key")
+                config.set("custom_value", "test")
+                config.save()
+                
+                # Load config
+                config2 = Config(config_path)
+                assert config2.get("api_key") == "test-key"
+                assert config2.get("custom_value") == "test"
+        finally:
+            # Restore original env var if it existed
+            if original_api_key is not None:
+                os.environ["NOTION_API_KEY"] = original_api_key
     
     def test_get_with_default(self):
         """Test getting configuration with default value."""
