@@ -1,0 +1,9 @@
+notion-client>=2.0.0
+click>=8.0.0
+pyyaml>=6.0
+rich>=13.0.0
+python-dotenv>=1.0.0
+tabulate>=0.9.0
+prompt-toolkit>=3.0.0
+aiohttp>=3.8.0
+requests>=2.28.0
