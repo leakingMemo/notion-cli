@@ -5,7 +5,7 @@ from typing import Optional
 from pathlib import Path
 
 from ..config import Config
-from ..cli import print_output
+from ..utils import print_output
 
 
 @click.group()

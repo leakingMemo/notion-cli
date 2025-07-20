@@ -8,7 +8,7 @@ from pathlib import Path
 from io import StringIO
 
 from ..client import NotionClient
-from ..cli import print_output, handle_error
+from ..utils import print_output, handle_error
 
 
 @click.group()

@@ -13,7 +13,7 @@ from pathlib import Path
 
 from .client import NotionClient
 from .config import Config
-from .cli import handle_error
+from .utils import handle_error
 
 
 console = Console()

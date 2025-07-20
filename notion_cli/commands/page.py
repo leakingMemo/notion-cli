@@ -6,7 +6,7 @@ from typing import Optional, Dict, Any
 from pathlib import Path
 
 from ..client import NotionClient
-from ..cli import print_output, handle_error
+from ..utils import print_output, handle_error
 
 
 @click.group()

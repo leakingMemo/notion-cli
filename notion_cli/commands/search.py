@@ -4,7 +4,7 @@ import click
 from typing import Optional
 
 from ..client import NotionClient
-from ..cli import print_output, handle_error
+from ..utils import print_output, handle_error
 
 
 @click.command(name="search")
