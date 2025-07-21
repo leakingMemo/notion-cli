@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Project Alpha Documentation",
+    "content": "Comprehensive documentation for Project Alpha including architecture, API reference, and deployment guide",
+    "status": "Published",
+    "category": "Documentation",
+    "tags": "project-alpha, documentation, technical"
+  },
+  {
+    "title": "Sprint Planning Template",
+    "content": "Template for conducting effective sprint planning sessions with the development team",
+    "status": "Template",
+    "category": "Agile",
+    "tags": "agile, scrum, planning, template"
+  },
+  {
+    "title": "Security Best Practices",
+    "content": "Guidelines and best practices for maintaining security in our applications",
+    "status": "Published",
+    "category": "Security",
+    "tags": "security, best-practices, guidelines"
+  }
+]

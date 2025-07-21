@@ -174,11 +174,37 @@ notion-cli page get <page-id> -o text
 ### Bulk Operations
 
 ```bash
-# Bulk update pages
-notion-cli bulk update --filter "Status=Draft" --set "Status=Review"
+# Create multiple pages from CSV
+notion-cli bulk create-pages data.csv --parent-id <parent-id>
 
-# Bulk export
-notion-cli bulk export --filter "Type=Meeting" --format markdown
+# Create pages from JSON with custom title field
+notion-cli bulk create-pages pages.json --parent-id <parent-id> --format json --title-field name
+
+# Preview bulk creation (dry run)
+notion-cli bulk create-pages data.csv --parent-id <parent-id> --dry-run
+
+# Update multiple pages from CSV
+notion-cli bulk update-pages updates.csv --id-field page_id
+
+# Delete multiple pages
+notion-cli bulk delete-pages page-ids.csv --force
+
+# List pages for bulk operations
+notion-cli bulk list-pages --database-id <db-id> --export-file pages.csv
+```
+
+Example CSV format for creating pages:
+```csv
+title,content,status,priority
+"Q1 Planning","Quarterly planning meeting notes","Published","High"
+"Product Roadmap","Feature planning for next release","Draft","Medium"
+```
+
+Example CSV format for updating pages:
+```csv
+id,status,priority
+"page-id-1","Completed","Low"
+"page-id-2","In Review","High"
 ```
 
 ### Templates
