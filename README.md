@@ -139,6 +139,27 @@ notion-cli block append <page-id> \
   --bullet "Second item"
 ```
 
+### Users
+
+```bash
+# List all workspace users
+notion-cli user list
+
+# Get specific user details
+notion-cli user get <user-id>
+
+# Get current integration/bot user info
+notion-cli user me
+
+# Search for users by name or email
+notion-cli user search "john"
+notion-cli user search "admin@company.com"
+
+# Output in different formats
+notion-cli user list --output table
+notion-cli user me --output json
+```
+
 ### Interactive Mode
 
 ```bash
