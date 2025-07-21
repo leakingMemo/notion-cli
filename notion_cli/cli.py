@@ -10,7 +10,7 @@ from rich.text import Text
 from .client import NotionClient
 from .config import Config
 from .utils import print_output, handle_error
-from .commands import page, database, block, search, config as config_cmd
+from .commands import page, database, block, search, config as config_cmd, user
 from .interactive import interactive_mode
 from . import __version__
 
@@ -72,6 +72,7 @@ cli.add_command(database.database)
 cli.add_command(block.block)
 cli.add_command(search.search_cmd)
 cli.add_command(config_cmd.config)
+cli.add_command(user.user)
 cli.add_command(interactive_mode)
 
 
